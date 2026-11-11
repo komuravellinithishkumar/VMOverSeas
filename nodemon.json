@@ -1,0 +1,5 @@
+{
+  "watch": ["vite.config.js", "tailwind.config.js", "postcss.config.js", "index.html", "public"],
+  "ext": "js,json,html,css",
+  "exec": "vite --host"
+}

@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --vm-black: #111111;
+  --vm-red: #d71920;
+  --vm-white: #ffffff;
+  --vm-neutral: #f4f4f4;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--vm-white);
+  color: var(--vm-black);
+}
+
+.font-serif-display {
+  font-family: "Playfair Display", "Cormorant Garamond", serif;
+}
+
+.font-mono-alt {
+  font-family: "JetBrains Mono", monospace;
+}
+
+::selection {
+  background: var(--vm-red);
+  color: var(--vm-white);
+}
+
+@keyframes vm-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.vm-marquee-track {
+  animation: vm-marquee 36s linear infinite;
+}
+
+/* Page transition fade */
+.vm-page {
+  animation: vm-page-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes vm-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form focus ring */
+.vm-input:focus {
+  outline: none;
+  border-color: var(--vm-red);
+  box-shadow: 0 0 0 3px rgba(215, 25, 32, 0.15);
+}
+
+[hidden] {
+  display: none !important;
+}
