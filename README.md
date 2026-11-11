@@ -16,5 +16,5 @@ npm run preview
 Stack: React 19, react-router-dom 7, framer-motion, lenis (smooth scroll),
 lucide-react, sonner, react-helmet-async, Tailwind CSS 3.
 
-Fully static: no backend. Enquiries open WhatsApp pre-filled. `public/_redirects` provides the
-SPA fallback for Netlify / Cloudflare Pages.
+Fully static: no backend. Enquiries open WhatsApp pre-filled. `wrangler.jsonc` serves `dist/` on Cloudflare
+with SPA fallback (do not add a `_redirects` catch-all; Cloudflare rejects it as a loop). On Netlify, add `public/_redirects` with `/* /index.html 200`.
