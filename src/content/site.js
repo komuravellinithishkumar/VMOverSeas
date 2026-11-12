@@ -189,6 +189,7 @@ export const WHY_CHOOSE = [
 export const CONTACT = {
   whatsapp: "919849126874",
   phone: "+91 98491 26874",
+  email: "connect@vmoverseas.com",
   phoneTel: "+919849126874",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=AGR+Plaza+Kompally+Hyderabad",
   address: "3rd Floor, AGR PLAZA, opp. Cine Planet, Ruby Block, Brundavan Colony, Kompally, Hyderabad, Secunderabad, Telangana 500100",
