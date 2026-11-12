@@ -246,6 +246,7 @@ const Contact = () => {
                     <h2 className="font-serif-display text-xl font-bold">Reach Us Directly</h2>
                     <ul className={`mt-6 space-y-4 text-sm text-[#111111]/70`}>
                       <li data-testid="contact-info-phone"><span className="font-mono-alt text-[10px] uppercase tracking-[0.25em] text-[#D71920] block mb-1">Phone</span><a href={`tel:${CONTACT.phoneTel}`} className="hover:text-[#D71920]">{CONTACT.phone}</a></li>
+                      <li data-testid="contact-info-email"><span className="font-mono-alt text-[10px] uppercase tracking-[0.25em] text-[#D71920] block mb-1">Email</span><a href={`mailto:${CONTACT.email}`} className="hover:text-[#D71920]">{CONTACT.email}</a></li>
                       <li data-testid="contact-info-address"><span className="font-mono-alt text-[10px] uppercase tracking-[0.25em] text-[#D71920] block mb-1">Office</span><a href={CONTACT.mapUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#D71920]">{CONTACT.address}</a></li>
                     </ul>
                   </div>

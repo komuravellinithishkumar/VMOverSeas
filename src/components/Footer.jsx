@@ -52,6 +52,7 @@ const Footer = () => (
           <h3 className="text-[11px] font-mono-alt font-semibold uppercase tracking-[0.3em] text-[#D71920]">Contact</h3>
           <ul className="mt-5 space-y-3 text-sm text-white/60">
             <li data-testid="footer-phone"><a href={`tel:${CONTACT.phoneTel}`} className="transition-colors duration-300 hover:text-white">{CONTACT.phone}</a></li>
+            <li data-testid="footer-email"><a href={`mailto:${CONTACT.email}`} className="transition-colors duration-300 hover:text-white">{CONTACT.email}</a></li>
             <li data-testid="footer-address" className="leading-relaxed"><a href={CONTACT.mapUrl} target="_blank" rel="noopener noreferrer" className="transition-colors duration-300 hover:text-white">{CONTACT.address}</a></li>
           </ul>
           <Link
