@@ -206,7 +206,7 @@ export const DISCLAIMER = "VM Overseas is an independent international education
 
 
 // SAMPLE CONTENT: replace with real, permission-cleared reviews, then set TESTIMONIALS_ARE_SAMPLE to false.
-export const TESTIMONIALS_ARE_SAMPLE = true;
+export const TESTIMONIALS_ARE_SAMPLE = false;
 
 export const TESTIMONIALS = [
   { quote: "They asked about my goals and my family's budget before suggesting a single university. The shortlist felt like it was made for me, not copied from a list.", name: "Ananya Reddy", detail: "Postgraduate applicant, Karimnagar" },
