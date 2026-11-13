@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { ArrowRight, Check } from "lucide-react";
 import Seo from "@/components/Seo";
 import Marquee from "@/components/Marquee";
 import DestinationCard from "@/components/DestinationCard";
@@ -11,6 +11,65 @@ import { ButtonPrimary, ButtonGhost } from "@/components/Buttons";
 import { Reveal, Eyebrow, MaskedLines } from "@/components/Motion";
 import { BRAND, DESTINATIONS, SERVICES, WHY_CHOOSE } from "@/content/site";
 import Icon from "@/components/Icon";
+
+const Seal = () => {
+  const reduce = useReducedMotion();
+  return (
+    <div className="relative h-[88px] w-[88px] shrink-0 sm:h-24 sm:w-24" aria-hidden="true">
+      <motion.svg
+        viewBox="0 0 200 200"
+        className="absolute inset-0 h-full w-full text-white/80"
+        animate={reduce ? undefined : { rotate: 360 }}
+        transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+      >
+        <defs>
+          <path id="seal-circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
+        </defs>
+        <text fill="currentColor" fontSize="17" fontWeight="600" className="font-mono-alt uppercase">
+          <textPath href="#seal-circle" textLength="486" lengthAdjust="spacing">Students successfully sent abroad •</textPath>
+        </text>
+      </motion.svg>
+      <div className="absolute inset-[18px] flex items-center justify-center rounded-full bg-[#D71920] text-white shadow-[0_8px_24px_-6px_rgba(215,25,32,0.7)] sm:inset-[20px]">
+        <Check size={22} strokeWidth={2.6} />
+      </div>
+    </div>
+  );
+};
+
+const TrustBar = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 1.4 }}
+    data-testid="trust-bar"
+    className="mt-14 flex flex-col gap-6 border-t border-white/15 pt-8 sm:mt-16 md:flex-row md:items-center md:gap-10"
+  >
+    <div className="flex items-center gap-5">
+      <Seal />
+      <div>
+        <div className="font-serif-display text-5xl font-bold leading-none tracking-tight sm:text-6xl">
+          1000<span className="text-[#D71920]">+</span>
+        </div>
+        <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/75 sm:text-xs">
+          Students successfully sent abroad
+        </p>
+      </div>
+    </div>
+
+    <div className="hidden h-12 w-px bg-white/15 md:block" />
+
+    <dl className="flex gap-10">
+      <div>
+        <dt className="font-mono-alt text-[10px] uppercase tracking-[0.22em] text-white/50">Guiding since</dt>
+        <dd className="mt-1.5 font-serif-display text-2xl font-semibold">{BRAND.est}</dd>
+      </div>
+      <div>
+        <dt className="font-mono-alt text-[10px] uppercase tracking-[0.22em] text-white/50">Destinations</dt>
+        <dd className="mt-1.5 font-serif-display text-2xl font-semibold">{DESTINATIONS.length}</dd>
+      </div>
+    </dl>
+  </motion.div>
+);
 
 const Hero = () => {
   const ref = useRef(null);
@@ -31,7 +90,8 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#111111]/80 via-[#111111]/40 to-transparent" />
       </motion.div>
 
-      <motion.div style={{ opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-24 pt-44 sm:px-8">
+
+      <motion.div style={{ opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-14 pt-40 sm:px-8 sm:pb-16">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,6 +130,8 @@ const Hero = () => {
             Explore Destinations
           </ButtonGhost>
         </motion.div>
+
+        <TrustBar />
       </motion.div>
     </section>
   );
